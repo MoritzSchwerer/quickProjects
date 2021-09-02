@@ -1,0 +1,51 @@
+#! /usr/bin/env python3
+import os
+import pickle
+import sys
+from termcolor import colored
+
+
+def display_header():
+    os.system('clear')
+
+    print(colored("#######################################################################################"), 'blue')
+    print("###                                    Welcome Sir                                  ###")
+    print(colored("#######################################################################################"), 'cyan')
+
+def get_action():
+    print("What would you like to do?")
+    print("(1) List all todos...")
+    print("(2) Add new todos...")
+    action = input()
+    if action not in ['1','2','q']:
+        action = "na"
+    return action
+
+def run_action(action):
+    if action == '1':
+        print("Listing all todos")
+    elif action == '2':
+        print("Adding new todos")
+    elif action == 'q':
+        os.system('clear')
+        sys.exit()
+    else:
+        action = 'na'
+
+def list_all_todos():
+    pass  
+
+def wait_for_confirmation():
+    input()
+
+def loop():
+    action = ''
+    while action != 'q':
+        display_header()
+        action = get_action()
+        display_header()
+        run_action(action)
+        wait_for_confirmation()
+
+if __name__ == "__main__":
+    loop()
